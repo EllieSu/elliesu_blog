@@ -4,8 +4,8 @@
 
 # Site
 title: 埃利蘇的筆記本
-subtitle: ''
-description: ''
+subtitle: '我是埃利'
+description: '隨手記錄，凡走過必留下痕跡'
 keywords:
 author: Ellie Su
 language: en
@@ -15,7 +15,7 @@ timezone: ''
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://elliesu.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: /:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
