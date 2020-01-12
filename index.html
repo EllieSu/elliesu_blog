@@ -114,6 +114,81 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/build-hexo-blog-part-1/" itemprop="url">hexo 部落格建立 Part1</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-01-12T16:36:58.000Z" itemprop="datePublished">Jan 13 2020</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 minutes read (About 634 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>本篇文章將說明：</p>
+<ol>
+<li>如何安裝 hexo</li>
+<li>hexo 專案建置</li>
+<li>將 hexo 加入 Git 版本控管</li>
+</ol>
+<h2 id="如何安裝-hexo"><a href="#如何安裝-hexo" class="headerlink" title="如何安裝 hexo"></a>如何安裝 hexo</h2><p>需安裝：</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> (建議使用 Node.js 10.0 及以上版本)<br>目前安裝 node.js 版本為 LTS 12.13.1</li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+<li>hexo<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>若安裝 hexo 時顯示以下訊息，表示有權限問題</p>
+<blockquote>
+<p>npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules</p>
+</blockquote>
+<p>使用 sudo 即可，因為 cli 指令會使用到命令列，必須授與權限才可使用<br>-g 表示 global 全域安裝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>安裝一鍵部署，若操作過程顯示下列錯誤訊息可能也表示未安裝此套件</p>
+<blockquote>
+<p>ERROR Deployer not found: git</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="hexo-專案建置"><a href="#hexo-專案建置" class="headerlink" title="hexo 專案建置"></a>hexo 專案建置</h3><p>安裝完成後即可切換到自己慣用的工作區，像我的話是 github 資料夾底下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;github</span><br></pre></td></tr></table></figure>
+<p>使用 hexo 方便的內建指令就可一鍵產生專案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init elliesu_blog</span><br><span class="line">cd elliesu_blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h4 id="Git-repository"><a href="#Git-repository" class="headerlink" title="Git repository"></a>Git repository</h4><p>在自己的 github 建立一個新的 repository: elliesu_blog，repository 的名稱要與資料夾名稱相同</p>
+<p>回到 hexo 專案內，開啟 _config.yml，設定產生靜態網站並部署時要推送到遠端的 git 位置，也就是剛剛在 github 新開的 repository，repository 路徑規則為 <a href="http://github.com/[github_name]/[repository_name].git，要推送的分支設定為" target="_blank" rel="noopener">http://github.com/[github_name]/[repository_name].git，要推送的分支設定為</a> master</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">http://github.com/EllieSu/elliesu_blog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>一鍵部署，d 表示 deploy，-g 表示產生靜態網站</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>推送完成後，到自己的 github 頁面會看到 master 分支的檔案怎麼只剩下靜態的部分？<br>原因是因為 hexo 部署時只會把靜態網站推送至遠端 master，所以遠端的 master 分支只會有專案中靜態網站的資料<br>那要怎麼把專案中其他的資料夾與檔案也加入追蹤呢？很簡單<br>首先，為了不混淆靜態網站與我們平常的編輯模式，我們必須要新增一個分支 hexo</p>
+<p>新增並切換分支 hexo，推送編輯模式至遠端 git，這樣就可以成功把編輯模式與部署分離囉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b hexo</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;EllieSu&#x2F;elliesu_blog.git</span><br><span class="line">git push -u origin hexo</span><br></pre></td></tr></table></figure>
+
+<p>下一章會介紹如何更換 hexo 主題、自訂網域名稱、SSL 免費憑證設定</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://hexo.io/zh-tw/docs" target="_blank" rel="noopener">Hexo 文件</a></p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/hello-world/" itemprop="url">Hello World</a>
         
     </h1>
