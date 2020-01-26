@@ -1,7 +1,7 @@
 ---
 title: hexo 部落格建立
 date: 2020-01-13 00:36:58
-tags:
+tags: hexo
 ---
 
 

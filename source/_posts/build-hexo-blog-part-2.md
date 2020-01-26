@@ -2,6 +2,11 @@
 title: hexo 部落格建立 part2
 date: 2020-01-26 22:26:51
 tags:
+- hexo
+- minos
+- Cloudflare
+- SSL
+- Godaddy
 ---
 
 
@@ -63,7 +68,7 @@ npm install cheerio
 - 關閉留言功能
 ```yaml
 logo:
-  text: Ellie's Book
+  text: Ellie's Note
 
 # Share plugin settings.
 share:
