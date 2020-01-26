@@ -1,7 +1,9 @@
 ---
 title: hexo 部落格建立 part2
+date: 2020-01-26 22:26:51
 tags:
 ---
+
 
 本篇文章將說明：
 4. 安裝 hexo 主題 minos
