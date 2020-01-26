@@ -84,7 +84,7 @@ comment:
 ## 客製化網域名稱設定
 > 如果你的網域名稱不需要客製化的話，每個 GitHub 帳號都會有一個免費的 GitHub Pages 可以使用，但只能用於靜態網站，使用方式很簡單，只需要前往自己的 Git Repository -> Setting -> GitHub Pages 設定要發布的分支即可
 > ![GitHub Page branch setting](../../../images/github-page-branch-setting.png)
-> 現在可以試著用 https://{{your_account}}.github.io/{{your_repository}} 進入這個靜態網站
+> 現在可以試著用 https://\{\{your_account\}\}.github.io/\{\{your_repository\}\} 進入這個靜態網站
 
 客製化網域名稱首先須先準備一個購買好的網域，這邊使用 [Godaddy](https://www.godaddy.com/) 購買
 1. 一樣是在 Git Repository -> Setting -> GitHub Pages -> Custom domain 填上自訂網域
