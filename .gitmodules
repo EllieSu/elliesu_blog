@@ -2,3 +2,6 @@
 	path = themes/minos
 	url = https://github.com/ppoffice/hexo-theme-minos.git
 	ignore = uncracked
+[submodule "source/repositories/gluttonous-snake"]
+	path = source/repositories/gluttonous-snake
+	url = https://github.com/EllieSu/gluttonous-snake.git
