@@ -101,3 +101,8 @@ deploy:
   type: git
   repository: http://github.com/EllieSu/elliesu_blog.git
   branch: master
+
+# Google Analytics
+google_analytics:
+  tracking_id: G-SSDRC5Y1DQ
+  localhost_ignored: true # 忽略本地端流量
